@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import List from './List';
 
+import Button from 'react-bootstrap/Button';
+
 
 export default class App extends Component {
   constructor(props) {
@@ -25,10 +27,11 @@ export default class App extends Component {
     });
   }
 
-  removeItem = (name, i) => {
+  removeItem = (index) => {
     // console.log(name);
-    let items = this.state.items.slice();
-    items.splice(i, 1);
+    const items = this.state.items.filter((item, itemIndex) => {
+      return itemIndex !== index
+    })
     this.setState({ items });
   }
   
@@ -40,7 +43,7 @@ export default class App extends Component {
                     value = {this.state.term} 
                     onChange ={(e) => {this.updateItems(e)}}
             />
-            <button type = "submit">Add Task</button>
+            <Button type = "submit">Add Task</Button>
         </form>
         <List items = {this.state.items} removeItem = {this.removeItem} />
       </div>

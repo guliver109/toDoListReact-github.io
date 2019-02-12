@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
+// import Button from 'react-bootstrap/Button';
 
 export default class List extends Component {
-    removeItem(item, i){
-        this.props.removeItem(item, i);
-    }
     render() {
         return(
             <div>
             <ul>
-                {this.props.items.map((item, i) => { 
-                    return <li onClick = {() => {this.removeItem(item, i)}} key = {i}>{item} X</li>
+                {this.props.items.map((item, index) => { 
+                    return <li onClick = {(e) => {this.props.removeItem(index)}} 
+                            key = {item} className = "remove">{item} X</li>
                 })}
             </ul>
         </div>
