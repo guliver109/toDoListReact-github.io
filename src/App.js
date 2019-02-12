@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import List from './List';
 
 import Button from 'react-bootstrap/Button';
-
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 export default class App extends Component {
   constructor(props) {
@@ -37,16 +39,22 @@ export default class App extends Component {
   
   render() {
     return (
-      <div>
-        <form className = "App" onSubmit = {(e) => this.addItem(e)}>
-            <input  placaholder = "Add Task" 
-                    value = {this.state.term} 
-                    onChange ={(e) => {this.updateItems(e)}}
-            />
-            <Button type = "submit">Add Task</Button>
-        </form>
-        <List items = {this.state.items} removeItem = {this.removeItem} />
-      </div>
+      <Container>
+        <Row>
+          <Col>
+            <form className = "App" onSubmit = {(e) => this.addItem(e)}>
+              <input  placaholder = "Add Task" 
+                      value = {this.state.term} 
+                      onChange ={(e) => {this.updateItems(e)}}
+              />
+              <Button type = "submit">Add Task</Button>
+            </form>
+          </Col>
+          <Col>
+            <List items = {this.state.items} removeItem = {this.removeItem} />
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
