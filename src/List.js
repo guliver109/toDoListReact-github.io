@@ -5,13 +5,13 @@ export default class List extends Component {
     render() {
         return(
             <div>
-            <ul>
-                {this.props.items.map((item, index) => { 
-                    return <li onClick = {(e) => {this.props.removeItem(index)}} 
+                <ul>
+                    {this.props.items.map((item, index) => { 
+                        return <li onClick = {(e) => {this.props.removeItem(index)}} 
                             key = {item} className = "remove">{item} X</li>
-                })}
-            </ul>
-        </div>
+                    })}
+                </ul>
+            </div>
         )
     }
 }
