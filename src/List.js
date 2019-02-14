@@ -1,28 +1,17 @@
-import React, { Component } from 'react';
-// import Button from 'react-bootstrap/Button';
-const tasksList = {
+import React, {Component} from 'react';
+import Item from "./Item"
 
-}
-const onClickList = {
-
-}
-const remove = {
-    
-}
-export default class List extends Component {
+export default class List extends React.Component {
     render() {
         return(
-            <div className = "tasks">
-                <ul style = {tasksList} className = "tasksList">
-                    {this.props.items.map((item, index) => { 
-                        return <li  style = {onClickList} onClick = {(e) => {this.props.removeItem(index)}} 
-                            key = {item} className = "remove" style = {remove}>{item}</li>
-                    })}
-                </ul>
-            </div>
+            <ul className = "todolist">
+                {this.props.items.map(item => (
+                    <Item key = {item.id} id = {item.id}
+                            text = {item.text} completed = {item.done}
+                            onItemCompleted = {this.props.onItemCompleted}
+                            onDeleteItem = {this.props.onDeleteItem} />
+                ))}
+            </ul>
         )
     }
 }
-
-
-
