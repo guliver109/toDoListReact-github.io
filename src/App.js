@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import List from './List';
 
+
+const title = {
+  margin: "1rem",
+  color: "#ff2968"
+}
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -50,7 +56,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <h4 className = "tittle">To Do List</h4>
+        <h4 className = "title" style = {title}>To Do List</h4>
           <div className = "row">
             <div className = "col-md-3">
               <List items = {this.state.items}
