@@ -16,7 +16,7 @@ export default class List extends Component {
                 <ul style = {tasksList} className = "tasksList">
                     {this.props.items.map((item, index) => { 
                         return <li  style = {onClickList} onClick = {(e) => {this.props.removeItem(index)}} 
-                            key = {item} className = "remove" style = {remove}>{item} X</li>
+                            key = {item} className = "remove" style = {remove}>{item}</li>
                     })}
                 </ul>
             </div>
